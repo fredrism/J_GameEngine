@@ -16,7 +16,7 @@ public class BoxCollider extends Collider {
     public void CalculateInertia(double mass, RigidBodyComponent rb)
     {
         this.rb = rb;
-        mesh = OBJReader.fromFile("C:\\Users\\Fredrik\\IdeaProjects\\Backup\\SWAPP\\src\\sample\\Resources\\cuboid2.obj");
+        mesh = new OBJReader().fromFile("sample/Resources/cube.obj");
         double width = 0, depth = 0, height = 0;
         for(int i = 0; i < mesh.GetTriangleCount(); i++)
         {

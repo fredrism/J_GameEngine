@@ -1,4 +1,5 @@
 package sample.Mesh;
+import javafx.scene.shape.Path;
 import sample.VectorMath.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -65,6 +66,7 @@ public class OBJReader {
     private static List<String> readFile(String path)
             throws IOException
     {
+        path = Paths.get("src/" + path).toAbsolutePath().toString();
         List<String> encoded = Files.readAllLines(Paths.get(path));
         return encoded;
     }

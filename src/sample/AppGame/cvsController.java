@@ -54,17 +54,18 @@ public class cvsController {
         RenderClass r = new RenderClass(image.getPixelWriter(), 640, 400);
         InputController input = new InputController();
         final GameSceneClass scene = new GameSceneClass(r);
+        OBJReader objReader = new OBJReader();
 
         GameObject p = new GameObject(scene);
-        p.AddComponent(new MeshRenderComponent(OBJReader.fromFile("C:\\Users\\Fredrik\\IdeaProjects\\Backup\\SWAPP\\src\\sample\\Resources\\sphere.obj"),
-                new Image("file:C:\\Users\\Fredrik\\IdeaProjects\\Backup\\SWAPP\\src\\sample\\Resources\\Grunge-Background-010.png")));
+        p.AddComponent(new MeshRenderComponent(objReader.fromFile("sample/Resources/cube.obj"),
+                new Image("sample\\Resources\\Dirt_basecolor.png")));
         p.getTransform().setPosition(new FVector(0,4,0));
         p.AddComponent(new RigidBodyComponent());
         p.AddComponent(new kkkjk());
 
         GameObject q = new GameObject(scene);
-        q.AddComponent(new MeshRenderComponent(OBJReader.fromFile("SWAPP\\src\\sample\\Resources\\cuboid2.obj"),
-                new Image("file:SWAPP\\src\\sample\\Resources\\UVGrid.png")));
+        q.AddComponent(new MeshRenderComponent(objReader.fromFile("sample/Resources/cube.obj"),
+                new Image("sample\\Resources\\Dirt_basecolor.png")));
         q.getTransform().setPosition(new FVector(0.25,0,0));
         q.AddComponent(new RigidBodyComponent());
         q.GetComponent(RigidBodyComponent.class).IsKinematic = true;
